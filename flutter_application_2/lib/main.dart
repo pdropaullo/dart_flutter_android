@@ -21,6 +21,51 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+class Contact {
+  final String imagePath;
+  final String name;
+  final String email;
+
+  Contact({
+    required this.imagePath,
+    required this.name,
+    required this.email,
+  });
+}
+
+List<Contact> contacts = [
+  Contact(
+    imagePath: 'https://avatars.githubusercontent.com/u/103196282?v=4',
+    name: 'Pedro Paulo de Abreu',
+    email: 'pedro@email.com',
+  ),
+  Contact(
+    imagePath: 'https://avatars.githubusercontent.com/u/92828001?v=4',
+    name: 'Thiago Ruan Costa',
+    email: 'thiago@email.com',
+  ),
+  Contact(
+    imagePath: 'https://avatars.githubusercontent.com/u/89526223?v=4',
+    name: 'Maurício Cardoso Oliveira',
+    email: 'mauricio@email.com',
+  ),
+  Contact(
+    imagePath: 'https://avatars.githubusercontent.com/u/84816808?v=4',
+    name: 'Ana Flávia de Freitas Corrêa',
+    email: 'ana@email.com',
+  ),
+  Contact(
+    imagePath: 'https://avatars.githubusercontent.com/u/105252686?v=4',
+    name: 'Natália Heinzen',
+    email: 'natalia@email.com',
+  ),
+  Contact(
+    imagePath: 'https://avatars.githubusercontent.com/u/40038663?v=4',
+    name: 'Jonathan Carlos Costa',
+    email: 'jonathan@email.com',
+  ),
+];
+
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -38,20 +83,32 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.blue,
+                    width: 150,
+                    height: 150,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(
+                          75), // Metade da largura/altura para obter um círculo
+                      child: Image.network(
+                        'https://source.unsplash.com/random/',
+                        width: 150,
+                        height: 150,
+                        fit: BoxFit.cover, // Ajuste a imagem para o círculo
+                      ),
                     ),
                   ),
                   SizedBox(width: 20),
                   Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.green,
+                    width: 150,
+                    height: 150,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(
+                          75), // Metade da largura/altura para obter um círculo
+                      child: Image.network(
+                        'https://source.unsplash.com/random/',
+                        width: 150,
+                        height: 150,
+                        fit: BoxFit.cover, // Ajuste a imagem para o círculo
+                      ),
                     ),
                   ),
                 ],
@@ -61,29 +118,51 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.red,
+                    width: 150,
+                    height: 150,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(
+                          75), // Metade da largura/altura para obter um círculo
+                      child: Image.network(
+                        'https://source.unsplash.com/random/',
+                        width: 150,
+                        height: 150,
+                        fit: BoxFit.cover, // Ajuste a imagem para o círculo
+                      ),
                     ),
                   ),
                   SizedBox(width: 20),
                   Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.yellow,
+                    width: 150,
+                    height: 150,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(
+                          75), // Metade da largura/altura para obter um círculo
+                      child: Image.network(
+                        'https://source.unsplash.com/random/',
+                        width: 150,
+                        height: 150,
+                        fit: BoxFit.cover, // Ajuste a imagem para o círculo
+                      ),
                     ),
                   ),
                 ],
               ),
               SizedBox(height: 20),
               Container(
-                width: 400,
-                height: 200,
-                color: Colors.orange,
+                width: 300,
+                height: 150,
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Image.network(
+                        'https://source.unsplash.com/random/',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ]),
           ),
@@ -93,27 +172,82 @@ class _HomePageState extends State<HomePage> {
               Container(
                 width: 400,
                 height: 100,
-                color: Colors.orange,
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Image.network(
+                        'https://source.unsplash.com/random/',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 20),
               Container(
                 width: 400,
                 height: 100,
-                color: Colors.orange,
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Image.network(
+                        'https://source.unsplash.com/random/',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 20),
               Container(
                 width: 400,
                 height: 100,
-                color: Colors.orange,
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Image.network(
+                        'https://source.unsplash.com/random/',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 20),
               Container(
                 width: 400,
                 height: 100,
-                color: Colors.orange,
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Image.network(
+                        'https://source.unsplash.com/random/',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ]),
+          ),
+          Container(
+            child: ListView.builder(
+              itemCount: contacts.length,
+              itemBuilder: (context, index) {
+                Contact contact = contacts[index];
+                return ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(contact.imagePath),
+                  ),
+                  title: Text(contact.name),
+                  subtitle: Text(contact.email),
+                );
+              },
+            ),
           ),
         ],
       ),
@@ -138,8 +272,8 @@ class _HomePageState extends State<HomePage> {
               label: 'Favortios',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Buscar',
+              icon: Icon(Icons.person),
+              label: 'Contatos',
             ),
           ]),
     );
