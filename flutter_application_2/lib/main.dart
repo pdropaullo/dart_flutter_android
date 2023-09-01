@@ -238,6 +238,9 @@ class _HomePageState extends State<HomePage> {
             child: ListView.builder(
               itemCount: contacts.length,
               itemBuilder: (context, index) {
+                // Ordenar a lista de contatos por nome antes de construir o ListTile
+                contacts.sort((a, b) => a.name.compareTo(b.name));
+
                 Contact contact = contacts[index];
                 return ListTile(
                   leading: CircleAvatar(
