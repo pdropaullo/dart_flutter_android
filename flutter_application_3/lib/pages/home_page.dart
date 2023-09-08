@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../components/dialog.dart';
+import 'package:flutter_application_3/pages/SecondPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key});
@@ -9,11 +8,17 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+// var nomeUsuario = 'Pedro';
+var request = {
+  'nome': 'Arlindo',
+  'idade': '22',
+  'profissao': 'Dev Front-End',
+  'salario': '12000'
+};
+
 TextEditingController nomeController = TextEditingController();
 TextEditingController sobrenomeController = TextEditingController();
-String nome = '';
-String sobrenome = '';
-List nomes = [];
+List<String> nomes = [];
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -25,32 +30,19 @@ class _HomePageState extends State<HomePage> {
           children: [
             TextField(
               controller: nomeController,
-              decoration: InputDecoration(
-                labelText: 'Nome',
-                // prefixIcon: Icon(Icons.person),
-              ),
+              decoration: InputDecoration(labelText: 'Nome'),
             ),
             TextField(
               controller: sobrenomeController,
-              decoration: InputDecoration(
-                labelText: 'Sobrenome',
-                // suffixIcon: Icon(Icons.person),
-              ),
+              decoration: InputDecoration(labelText: 'Sobrenome'),
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              // onPressed: () {
-              //   setState(() {
-              //     nome = nomeController.text;
-              //     sobrenome = sobrenomeController.text;
-              //     nomeController.clear();
-              //     sobrenomeController.clear();
-              //   });
-              // },
               onPressed: () {
                 setState(() {
-                  nomes.add(
-                      nomeController.text + ' ' + sobrenomeController.text);
+                  nomes.add(nomeController.text.toUpperCase() +
+                      ' ' +
+                      sobrenomeController.text.toUpperCase());
                   nomeController.clear();
                   sobrenomeController.clear();
                 });
@@ -58,33 +50,38 @@ class _HomePageState extends State<HomePage> {
               child: Text('Adicionar'),
             ),
             SizedBox(height: 20),
-            // Text(
-            //   'Nome Completo: $nome $sobrenome',
-            //   style: TextStyle(fontSize: 20),
-            // ),
             Container(
-              height: 400,
+              height: 250,
               child: ListView.builder(
                 itemCount: nomes.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(nomes[index]),
                     trailing: IconButton(
-                      icon: Icon(
-                        Icons.delete,
-                        color: Colors.red, // Defina a cor vermelha (red) aqui
-                      ),
+                      icon: Icon(Icons.delete, color: Colors.red),
                       onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Confirmacao();
-                            });
+                        // showDialog(
+                        // context: context,
+                        // builder: (BuildContext context) {
+                        //   return Confirmacao();
+                        // });
                       },
                     ),
                   );
                 },
               ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        SecondPage(request: request),
+                  ),
+                );
+              },
+              child: Text('Próxima Página'),
             ),
           ],
         ),
